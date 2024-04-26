@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine.js Example</title>
+  <script src="/node_modules/alpinejs/dist/cdn.min.js" defer></script>
+  <script src="/node_modules/htmx.org/dist/htmx.min.js" defer></script>
+  <script src="/local-api.js" defer></script>
+</head>
+
+<body>
+  <div x-data="{ message: 'Hello Alpine!' }">
+    <h1 x-text="message"></h1>
+  </div>
+
+  <div x-data="{ count: 0 }">
+    <button x-on:click="count++">Increment</button>
+    <span x-text="count"></span>
+  </div>
+
+
+  <div hx-get="/api/getData" hx-trigger="click">
+    Click me to load data
+  </div>
+
+</body>
+
+</html>
